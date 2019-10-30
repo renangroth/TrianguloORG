@@ -17,8 +17,8 @@ pedeN:
 		li a7, 5		#Pega o Int digitado
 		ecall
 		
-		blt a0, t0, pedeN  	 #Testa se N < 1
-		add s0, zero, a0
+		blt a0, t0, pedeN  	#Testa se N < 1
+		add s0, zero, a0	#Salva valor digitado para s0
 pedeK:		
 		addi s1, zero, 0	#s1 vai ser K
 		li 	a7, 4		#Seta para imprimir String
@@ -30,8 +30,7 @@ pedeK:
 		
 		blt a0, t0, pedeK	#Testa se K < 1
 		blt s0, a0, pedeK	#Testa se N<K
-		add s1, zero, a0
-		
+		add s1, zero, a0	#Salva valor digitado para s1
 		beq s0, t0, if1 	#testa se n=1
 		
 		
@@ -48,7 +47,7 @@ main:
 		la   a0, msg_Rslt	#Carrega mensagem em a0
 		ecall			#Imprime
 		
-		addi a0, s4, 0
+		addi a0, s4, 0		#Valor do retorno para a0
 		li   a7, 1		#Seta para imprimir INT
 		ecall
 		
@@ -61,7 +60,6 @@ ST_2:
 		beq s3, zero, else	#Testa se K igual a 0
 		beq s3, s2, else1	#Testa se K igual N
 		
-	
 		addi sp, sp, -4
 		sw s2, 0(sp)		#Salva o valor de N na pilha
 		addi sp, sp, -4
@@ -89,9 +87,9 @@ ST_2:
 	
 		
 		lw a0, 0(sp)		#Lê o retorno multiplicado																																				
-		lw ra, 4(sp)
-		lw s3, 8(sp)
-		lw s2, 12(sp)
+		lw ra, 4(sp)		#Lê o registrador de retorno
+		lw s3, 8(sp)		#Lê o auxiliar K
+		lw s2, 12(sp)		#Lê o auxiliar N
 		add s4, a0, s4		#Soma retorno multiplicado com o retorno da outra parte
 		addi sp, sp, 16
 		ret					
