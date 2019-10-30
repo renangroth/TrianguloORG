@@ -82,10 +82,4 @@ else1:
 		addi s4, zero, 1
 		ret			#Retorna 1
 		
-		
-fim: 		
-		ret
-		nop 
-		ebreak
-
-
+	
