@@ -9,6 +9,7 @@ msg_1:		.string "Resultado: 1"
 
 pedeN:		
 		addi s0, zero, 0	#s0 vai ser N
+		addi t0, zero, 1    	#t0 vale 1
 		li   a7, 4		#Seta para imprimir String
 		la   a0, msg_N		#Carrega mensagem em a0
 		ecall			#Imprime
@@ -31,7 +32,6 @@ pedeK:
 		blt s0, a0, pedeK	#Testa se N<K
 		add s1, zero, a0
 		
-		addi t0, zero, 1    	#t0 vale 1
 		beq s0, t0, if1 	#testa se n=1
 		
 		
@@ -115,4 +115,3 @@ if2:
 		nop 
 		ebreak
 			
-	
